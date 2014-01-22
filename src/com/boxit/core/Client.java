@@ -185,4 +185,13 @@ public class Client {
 	public void removeCadeauReceived(Cadeau cadeau){
 		listCadeauReceived.remove(cadeau);
 	}
+	
+	/* METHODE STATIC
+	 ******************************
+	 */
+	public static boolean isClientInDateBase(String pseudo,String mail,String telNum)
+	{
+		
+		return true;
+	}
 }
