@@ -4,43 +4,51 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Cadeau {
-	
+
 	//DOTO j ai pas mis le "type" car on peut le savoir en regardant si dateDebut et DateFin est null et etc bref demandez a Shark
 
-	
+
 	private String titre;
-	
-	private String url;
-	
+
 	/**
-	  * Represente la date du debut d activation du cadeau.
-	  */
-	 private Date dateDebut;
-	 
-	 /**
-	  * Represente la date du fin d activation du cadeau.
-	  */
-	 private Date dateFin;
-	 
-	
+	 * Represente le type de document (video,photo etc.)
+	 */
+	private int type;
+
+	private String url;
+
+	/**
+	 * Represente la date du debut d activation du cadeau.
+	 */
+	private Date dateDebut;
+
+
+
+	/**
+	 * Represente la date du fin d activation du cadeau.
+	 */
+	private Date dateFin;
+
+
 	/**
 	 * Représente les coordonnées GPS et le rayon du cadeau.
 	 */
 	private double longitude, latitude , rayon;
-	
-	
+
+
 	/**
 	 * represent le client assosie au cadeau
 	 */
 	private Client client;
-	
+
 
 	/**
 	 * constructeur pour les cadeau temps
 	 */
-	public Cadeau(String titre, String url,Date dateDebut,Date dateFin,double longitude,double latitude,double rayon, Client client ){
-		
+	public Cadeau(String titre,int type, String url,Date dateDebut,Date dateFin,double longitude,double latitude,double rayon, Client client ){
+
 		this.titre= titre;
+		this.type=type;
 		this.url=url;
 		this.dateDebut=dateDebut;
 		this.dateFin=dateFin;
@@ -49,15 +57,31 @@ public class Cadeau {
 		this.rayon=rayon;
 		this.client=client;
 	}
-	
+
 	public String getTitre(){
 		return titre;
 	}
-	
+
 	public void setTitre(String titre){
 		this.titre=titre;
 	}
-	
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -106,5 +130,5 @@ public class Cadeau {
 		this.rayon = rayon;
 	}
 
-	
+
 }
