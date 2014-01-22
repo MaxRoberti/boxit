@@ -1,6 +1,7 @@
 package com.boxit.core;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Client {
 	
@@ -33,7 +34,7 @@ public class Client {
 	/**
 	 * represente la date de naissance de l utilisateur
 	 */
-	private DateBirth dateBirth;
+	private Date dateBirth;
 	
 	/**
 	 * represente le mot de passe de l utilisateur
@@ -61,7 +62,7 @@ public class Client {
 	 * 
 	 */
 	public Client(String pseudo,String mail,String name,String firstName,String telNum,
-			DateBirth dateBirth,String mdp)
+			Date dateBirth,String mdp)
 	{
 		this.pseudo = pseudo;
 		this.mail = mail;
@@ -115,11 +116,11 @@ public class Client {
 		this.telNum = telNum;
 	}
 	
-	public DateBirth getDateBirth(){
+	public Date getDateBirth(){
 		return dateBirth;
 	}
 	
-	public void setDateBirth(DateBirth datebirth){
+	public void setDateBirth(Date datebirth){
 		this.dateBirth = dateBirth;
 	}
 	
