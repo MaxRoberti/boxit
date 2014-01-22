@@ -2,8 +2,6 @@ package com.boxit.core;
 
 
 
-
-
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
@@ -60,6 +58,14 @@ public class Controller extends SQLiteOpenHelper
 	 * @param password
 	 * @return True si le user a r��ussi �� se connecter
 	 */
+	
+	/**
+	 * @return L'instance du controller en cours
+	 */
+	
+	public static Controller getInstance() {
+		return Controller.control;
+	}
 	
 	
 	
