@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Client {
-	
+
+	private Controller sqlite;
+
 	/**
 	 * represente le pseudo de l utilisateur
 	 */
