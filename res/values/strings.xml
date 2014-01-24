@@ -27,7 +27,9 @@
     <string name="signup_error_email"> Adresse email invalide </string>
     <string name="signup_error_password">Mot de passe invalide</string>
     <string name="signup_error_name">Veuillez entrer un nom/prenom</string>
-    <string name="signup_error_exists">Cet utilisateur existe deja</string>
+    <string name="signup_error_pseudo_exists">Ce pseudo est déjà utilisé </string>
+    <string name="signup_error_email_exists">Cette adresse e-mail est déjà associée à un compte</string>
+    <string name="signup_error_telnumber_exists">Ce numéro de téléphone est déjà associé à un compte</string>
     <string name="date_de_naissance">Date de naissance: </string>
 
 </resources>

@@ -70,8 +70,8 @@ public class InscriptionActivity extends Activity {
 		Matcher m = p.matcher(email);
 		return m.matches();
 	} 
-	
-	
+
+
 	private class OnSignUpBtnClickListener implements View.OnClickListener {
 		private InscriptionActivity toClose;
 
@@ -88,10 +88,12 @@ public class InscriptionActivity extends Activity {
 
 			else if(firstname.getText().length() == 0 || name.getText().length() == 0|| pseudo.getText().length() == 0)
 				Toast.makeText(v.getContext(), getResources().getString(R.string.signup_error_name), Toast.LENGTH_SHORT).show();
-			else if(dataControl.existsClientWithPseudo(pseudo.getText().toString()) || dataControl.existsClientWithMail(email.getText().toString())
-					|| dataControl.existsClientWithTel(telnumber.getText().toString()))
-			Toast.makeText(v.getContext(), getResources().getString(R.string.signup_error_exists), Toast.LENGTH_SHORT).show();
-
+			else if(dataControl.existsClientWithPseudo(pseudo.getText().toString()))
+				Toast.makeText(v.getContext(), getResources().getString(R.string.signup_error_pseudo_exists), Toast.LENGTH_SHORT).show();
+			else if(dataControl.existsClientWithMail(email.getText().toString()))
+				Toast.makeText(v.getContext(), getResources().getString(R.string.signup_error_email_exists), Toast.LENGTH_SHORT).show();
+			else if(dataControl.existsClientWithTel(telnumber.getText().toString()))
+			Toast.makeText(v.getContext(), getResources().getString(R.string.signup_error_telnumber_exists), Toast.LENGTH_SHORT).show();
 			else  {
 				Client client = new Client(pseudo.getText().toString(),name.getText().toString(), firstname.getText().toString(),date_de_naissance, telnumber.getText().toString(),email.getText().toString(), password.getText().toString());
 
