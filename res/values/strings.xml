@@ -31,5 +31,11 @@
     <string name="signup_error_email_exists">Cette adresse e-mail est déjà associée à un compte</string>
     <string name="signup_error_telnumber_exists">Ce numéro de téléphone est déjà associé à un compte</string>
     <string name="date_de_naissance">Date de naissance: </string>
-
+     
+     
+     <!-- Send Text message activity -->
+    <string name="Message">Evrivez votre message ici</string>
+    <string name="txtmsg_error">Votre message est vide ici</string>
+    <string name="textmsg_sendbutton">Envoyer </string>
+    
 </resources>

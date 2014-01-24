@@ -28,6 +28,9 @@
         <activity 
             android:name="com.boxit.InscriptionActivity">
         </activity>
+        <activity 
+            android:name="com.boxit.TextmsgActivity">
+        </activity>
     </application>
 
 </manifest>
