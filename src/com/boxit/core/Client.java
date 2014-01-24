@@ -1,15 +1,11 @@
 package com.boxit.core;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
-import android.database.sqlite.SQLiteDatabase;
 
 public class Client {
-
-	private Controller sqlite;
-
+	
 	/**
 	 * represente le pseudo de l utilisateur
 	 */
@@ -39,7 +35,7 @@ public class Client {
 	/**
 	 * represente la date de naissance de l utilisateur
 	 */
-	private GregorianCalendar dateBirth;
+	private String dateBirth;
 	
 	/**
 	 * represente le mot de passe de l utilisateur
@@ -66,8 +62,8 @@ public class Client {
 	 * Constructeur motherfucker!!
 	 * 
 	 */
-	public Client(String pseudo,String mail,String name,String firstName,String telNum,
-			GregorianCalendar dateBirth,String mdp)
+	public Client(String pseudo,String name,String firstName,String dateBirth,String telNum,
+			String mail,String mdp)
 	{
 		this.pseudo = pseudo;
 		this.mail = mail;
@@ -81,15 +77,13 @@ public class Client {
 		this.listCadeauReceived = null;
 	}
 	
+	
 	public String getPseudo() {
 		return pseudo;
 	}
 	
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET pseudo=\"" + pseudo + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
 	public String getMail() {
@@ -98,9 +92,6 @@ public class Client {
 
 	public void setMail(String mail) {
 		this.mail = mail;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET mail=\"" + mail + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
 	public String getName() {
@@ -109,9 +100,6 @@ public class Client {
 	
 	public void setName(String name) {
 		this.name = name;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET nom=\"" + name + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
 	public String getFirstName(){
@@ -120,9 +108,6 @@ public class Client {
 	
 	public void setFristName(String firstName){
 		this.firstName = firstName;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET prenom=\"" + firstName + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
 	public String getTelNum(){
@@ -131,32 +116,22 @@ public class Client {
 	
 	public void setTelNum(String telNum){
 		this.telNum = telNum;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET tel=\"" + telNum + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
-	public GregorianCalendar getDateBirth(){
+	public String getDateBirth(){
 		return dateBirth;
 	}
 	
-	public void setDateBirth(GregorianCalendar datebirth){
-		this.dateBirth = datebirth;
-		String dbdatebirth = Integer.toString(datebirth.get(Calendar.YEAR)).concat("-").concat(Integer.toString(datebirth.get(Calendar.DAY_OF_MONTH))).concat("-").concat(Integer.toString(datebirth.get(Calendar.MONTH)));
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET dateNaissance=\"" + dbdatebirth + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
+	public void setDateBirth(Date datebirth){
+		this.dateBirth = dateBirth;
 	}
 	
 	public String getMdp(){
 		return mdp;
 	}
 	
-	public void setMdp(String mdp){
+	public void setMdp(){
 		this.mdp = mdp;
-		SQLiteDatabase db = sqlite.getWritableDatabase();
-		db.execSQL("UPDATE Client SET password=\"" + mdp + "\" WHERE pseudo=\"" + this.pseudo + "\"");
-		db.close();
 	}
 	
 	public ArrayList<Contact> getListContact(){
@@ -213,11 +188,5 @@ public class Client {
 		listCadeauReceived.remove(cadeau);
 	}
 	
-	/* METHODE STATIC
-	 ******************************
-	 */
-	public static boolean isClientInDataBase(String pseudo,String mail,String telNum)
-	{
-		return true;
-	}
+	
 }
