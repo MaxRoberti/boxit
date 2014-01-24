@@ -34,7 +34,7 @@ public class TestActivity extends Activity {
       //On ouvre la base de données pour écrire dedans
         dataControl.open();
       //On insère le livre que l'on vient de créer
-        if(!(dataControl.existsClient(client.getPseudo())))
+        if(!(dataControl.existsClientWithPseudo(client.getPseudo())))
         {
         	dataControl.insertClient(client);
         }

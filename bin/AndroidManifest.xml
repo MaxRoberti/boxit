@@ -25,6 +25,9 @@
         <activity 
             android:name="com.boxit.TestActivity">
         </activity>
+        <activity 
+            android:name="com.boxit.InscriptionActivity">
+        </activity>
     </application>
 
 </manifest>

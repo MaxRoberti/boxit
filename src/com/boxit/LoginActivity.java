@@ -47,7 +47,7 @@ public class LoginActivity extends Activity {
         		"123");
 
       //On insère le livre que l'on vient de créer
-        if(!(dataControl.existsClient(client.getPseudo())))
+        if(!(dataControl.existsClientWithPseudo(client.getPseudo())))
         {
         	dataControl.insertClient(client);
         }
@@ -79,7 +79,7 @@ public class LoginActivity extends Activity {
 	private class OnSignUpBtnClickListener implements View.OnClickListener
 	{
 		public void onClick(View v) {
-			Intent i = new Intent(LoginActivity.this, TestActivity.class);
+			Intent i = new Intent(LoginActivity.this, InscriptionActivity.class);
 			startActivity(i);
 		}
 	}

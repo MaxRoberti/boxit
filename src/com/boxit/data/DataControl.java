@@ -66,8 +66,30 @@ public class DataControl {
 	 * @param pseudo
 	 * @return True si pseudo correspondant a un client dans la db
 	 */
-	public boolean existsClient(String pseudo) {
+	public boolean existsClientWithPseudo(String pseudo) {
 		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
+		int result = c.getCount();
+		c.close();
+		return result==1;
+	}
+	
+	/**
+	 * @param mail
+	 * @return True si mail correspondant a un client dans la db
+	 */
+	public boolean existsClientWithMail(String mail) {
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_MAIL +" = '" + mail +"'", null,null,null,null);
+		int result = c.getCount();
+		c.close();
+		return result==1;
+	}
+	
+	/**
+	 * @param mail
+	 * @return True si tel correspondant a un client dans la db
+	 */
+	public boolean existsClientWithTel(String tel) {
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_TEL +" = '" + tel +"'", null,null,null,null);
 		int result = c.getCount();
 		c.close();
 		return result==1;
@@ -79,7 +101,7 @@ public class DataControl {
 	 */
 	public boolean logIn(String pseudo,String mdp)
 	{
-		if(!(existsClient(pseudo)))
+		if(!(existsClientWithPseudo(pseudo)))
 		{
 			return false;
 		}
