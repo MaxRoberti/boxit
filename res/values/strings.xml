@@ -4,5 +4,12 @@
     <string name="app_name">Boxit</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello martin!</string>
+    <string name="login_pseudo">Pseudo :</string>
+    <string name="login_pseudo_in">pseudo</string>
+    <string name="login_password">Mot de passe :</string>
+    <string name="login_login">Se connecter</string>
+    <string name="login_signup">S enregister</string>
+    <string name="hello">helloooo</string>
+    <string name="description">coucou</string>
 
 </resources>

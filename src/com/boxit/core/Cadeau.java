@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+
 public class Cadeau {
 
 	//DOTO j ai pas mis le "type" car on peut le savoir en regardant si dateDebut et DateFin est null et etc bref demandez a Shark
@@ -42,8 +43,7 @@ public class Cadeau {
 	 */
 	private Client client;
 	
-	
-	private Controller sqlite;
+
 
 
 	/**
@@ -60,7 +60,6 @@ public class Cadeau {
 		this.latitude=latitude;
 		this.rayon=rayon;
 		this.client=client;
-		this.sqlite = Controller.getInstance();
 	}
 
 	public String getTitre(){
@@ -134,6 +133,8 @@ public class Cadeau {
 	public void setRayon(double rayon) {
 		this.rayon = rayon;
 	}
+	
+	
 
 
 }

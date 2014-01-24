@@ -3,6 +3,7 @@ package com.boxit.core;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class Client {
 	
 	/**
@@ -34,7 +35,7 @@ public class Client {
 	/**
 	 * represente la date de naissance de l utilisateur
 	 */
-	private Date dateBirth;
+	private String dateBirth;
 	
 	/**
 	 * represente le mot de passe de l utilisateur
@@ -61,8 +62,8 @@ public class Client {
 	 * Constructeur motherfucker!!
 	 * 
 	 */
-	public Client(String pseudo,String mail,String name,String firstName,String telNum,
-			Date dateBirth,String mdp)
+	public Client(String pseudo,String name,String firstName,String dateBirth,String telNum,
+			String mail,String mdp)
 	{
 		this.pseudo = pseudo;
 		this.mail = mail;
@@ -75,6 +76,7 @@ public class Client {
 		this.listCadeauSent = null;
 		this.listCadeauReceived = null;
 	}
+	
 	
 	public String getPseudo() {
 		return pseudo;
@@ -116,7 +118,7 @@ public class Client {
 		this.telNum = telNum;
 	}
 	
-	public Date getDateBirth(){
+	public String getDateBirth(){
 		return dateBirth;
 	}
 	
@@ -186,12 +188,5 @@ public class Client {
 		listCadeauReceived.remove(cadeau);
 	}
 	
-	/* METHODE STATIC
-	 ******************************
-	 */
-	public static boolean isClientInDateBase(String pseudo,String mail,String telNum)
-	{
-		
-		return true;
-	}
+	
 }
