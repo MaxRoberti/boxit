@@ -38,4 +38,6 @@
     <string name="txtmsg_error">Votre message est vide ici</string>
     <string name="textmsg_sendbutton">Envoyer </string>
     
+    <string name="testContact">kikou</string>
+    
 </resources>

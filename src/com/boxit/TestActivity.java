@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class TestActivity extends Activity {
 	TextView textTest = null;
+	TextView textTest2 = null;
 	private DataControl dataControl;
 
 	@Override
@@ -38,18 +39,38 @@ public class TestActivity extends Activity {
         {
         	dataControl.insertClient(client);
         }
+        
+        
       
         //Pour vérifier que l'on a bien créé notre livre dans la BDD
         //on extrait le livre de la BDD grâce au titre du livre que l'on a créé précédemment
         Client clientFromBDD = dataControl.getClientWithPseudo(client.getPseudo());
         
+    	// Tests pour les contacts
+    	
+    	// on ins�re un client
+    	
+    	dataControl.insertContact("Lhonard","maxrob");
+        
        
 		//test
-        String result =clientFromBDD.getMail();
+        String result = clientFromBDD.getMail();
+        String result2;
+        if(dataControl.alreadyContact("Lhonard","maxrob")) {
+        	result2= "d�j� pote";
+        }
+        else {
+        	result2="pas encore potes";
+        }
+        
 		//String result ="coucou";
 		dataControl.close();
+		// test client
 		textTest = (TextView)findViewById(R.id.textVieuw1);
-		textTest.setText(result);
+		textTest.setText(" ");
+		// test contact
+		textTest2 = (TextView)findViewById(R.id.textVieuw2);
+		textTest2.setText(result2);
 	}
 	
 	
@@ -60,5 +81,15 @@ public class TestActivity extends Activity {
 		return true;
 	}
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 

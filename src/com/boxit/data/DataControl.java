@@ -15,9 +15,11 @@ public class DataControl {
 	
 	private Context context;
 	
-	private String[] allColumns = {MaBaseSQLite.COL_PSEUDO,MaBaseSQLite.COL_NOM,
+	private String[] allColumns_client = {MaBaseSQLite.COL_PSEUDO,MaBaseSQLite.COL_NOM,
 			MaBaseSQLite.COL_PRENOM,MaBaseSQLite.COL_DATE_NAISSANCE,
 			MaBaseSQLite.COL_TEL,MaBaseSQLite.COL_MAIL,MaBaseSQLite.COL_PASSWORD};
+	
+	private String[] allColumns_contact = {MaBaseSQLite.COL_PSEUDO_CLIENT,MaBaseSQLite.COL_PSEUDO_CONTACT};
 
 
 
@@ -54,6 +56,19 @@ public class DataControl {
 		//on insère l'objet dans la BDD via le ContentValues
 		 bdd.insert(MaBaseSQLite.TABLE_CLIENT, null, values);
 	}
+	
+	// TODO mieux de demander le client total en argument
+	public void insertContact(String pseudo_client, String pseudo_contact){
+		
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(MaBaseSQLite.COL_PSEUDO_CLIENT, pseudo_client);
+		values.put(MaBaseSQLite.COL_PSEUDO_CONTACT, pseudo_contact);
+		
+		bdd.insert(MaBaseSQLite.TABLE_CONTACT_CLIENT, null, values);
+		
+	}
 
 	
 	// pour la desinscriptionActivity
@@ -62,23 +77,39 @@ public class DataControl {
 		return bdd.delete(MaBaseSQLite.TABLE_CLIENT, MaBaseSQLite.COL_PSEUDO + " = '" + pseudo +"'", null);
 	}
 	
+	//  TODO mettre fonction qui bouge un contact
+	
 	/**
 	 * @param pseudo
 	 * @return True si pseudo correspondant a un client dans la db
 	 */
 	public boolean existsClientWithPseudo(String pseudo) {
-		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns_client,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
 		int result = c.getCount();
 		c.close();
 		return result==1;
 	}
 	
 	/**
+	 * @param pseudo du contact, pseudo du client
+	 * @return  retourne true si le contact est deja dans la liste de contact du client
+	 */ 
+	
+	public boolean alreadyContact(String pseudo_client, String pseudo_contact) {
+		Cursor c = bdd.rawQuery("SELECT pseudo_client, pseudo_contact FROM Contact WHERE pseudo_client = '"+pseudo_client+"' AND pseudo_contact = '"+pseudo_contact+"'", null);
+	    int result = c.getCount();
+	    c.close();
+	    return result==1;
+	}  
+	
+	
+	
+	/**
 	 * @param mail
 	 * @return True si mail correspondant a un client dans la db
 	 */
 	public boolean existsClientWithMail(String mail) {
-		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_MAIL +" = '" + mail +"'", null,null,null,null);
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns_client,MaBaseSQLite.COL_MAIL +" = '" + mail +"'", null,null,null,null);
 		int result = c.getCount();
 		c.close();
 		return result==1;
@@ -89,7 +120,7 @@ public class DataControl {
 	 * @return True si tel correspondant a un client dans la db
 	 */
 	public boolean existsClientWithTel(String tel) {
-		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_TEL +" = '" + tel +"'", null,null,null,null);
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns_client,MaBaseSQLite.COL_TEL +" = '" + tel +"'", null,null,null,null);
 		int result = c.getCount();
 		c.close();
 		return result==1;
@@ -105,7 +136,7 @@ public class DataControl {
 		{
 			return false;
 		}
-		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns_client,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
 		//Sinon on se place sur le premier élément
 		c.moveToFirst();
 		boolean result = c.getString(6).equals(mdp);
@@ -117,9 +148,10 @@ public class DataControl {
 	// pour la connextionActivity
 	public Client getClientWithPseudo(String pseudo){
 		//Récupère dans un Cursor les valeur correspondant à un client contenu dans la BDD (ici on sélectionne le client grâce à son pseudo)
-		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
+		Cursor c = bdd.query(MaBaseSQLite.TABLE_CLIENT,allColumns_client,MaBaseSQLite.COL_PSEUDO +" = '" + pseudo +"'", null,null,null,null);
 		return cursorToClient(c);
 	}
+	
 	
 	//Cette méthode permet de convertir un cursor en un client
 		private Client cursorToClient(Cursor c){
