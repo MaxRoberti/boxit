@@ -11,10 +11,10 @@ public class CadeauRecu extends Cadeau{
 	 */
 	private boolean close;
 	
-	public CadeauRecu(String titre,int type, String url, Date dateDebut, Date dateFin,
-			double longitude, double latitude, double rayon, Client client,boolean close) {
+	public CadeauRecu(String titre,int type, String url, String dateDebut, String dateFin,
+			double longitude, double latitude, int rayon,String pseudo_client, String legende, boolean close) {
 		
-		super(titre,type, url, dateDebut, dateFin, longitude, latitude, rayon, client);
+		super(url,pseudo_client,type,longitude,latitude,titre,rayon,dateDebut,dateFin,legende);
 		this.setClose(true);
 		
 	}
@@ -28,7 +28,5 @@ public class CadeauRecu extends Cadeau{
 	}
 	
 	
-	
-
 
 }

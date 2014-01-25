@@ -18,10 +18,10 @@ public class CadeauEnvoye extends Cadeau{
 	private ArrayList<Contact> listContactOpen;
 	
 	
-	public CadeauEnvoye(String titre,int type, String url, Date dateDebut, Date dateFin,
-			double longitude, double latitude, double rayon, Client client,
+	public CadeauEnvoye(String titre,int type, String url, String dateDebut, String dateFin,
+			double longitude, double latitude, int rayon, String pseudo_client, String legende,
 			ArrayList<Contact> listContactClose,ArrayList<Contact> listContactOpen) {
-		super(titre, type, url, dateDebut, dateFin, longitude, latitude, rayon, client);
+		super(url,pseudo_client,type,longitude,latitude,titre,rayon,dateDebut,dateFin,legende);
 		this.listContactClose=listContactClose;
 	}
 

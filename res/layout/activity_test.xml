@@ -19,5 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/testContact" />
+        
+         <TextView
+        android:id="@+id/textVieuw3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/testCadeau" />
 
 </RelativeLayout>

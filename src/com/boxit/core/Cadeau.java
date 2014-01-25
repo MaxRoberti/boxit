@@ -22,35 +22,39 @@ public class Cadeau {
 	/**
 	 * Represente la date du debut d activation du cadeau.
 	 */
-	private Date dateDebut;
+	private String dateDebut;
 
 
 
 	/**
 	 * Represente la date du fin d activation du cadeau.
 	 */
-	private Date dateFin;
+	private String dateFin;
 
 
 	/**
 	 * Représente les coordonnées GPS et le rayon du cadeau.
 	 */
-	private double longitude, latitude , rayon;
+	private double longitude, latitude;
 
 
+	private int rayon;
 	/**
 	 * represent le client assosie au cadeau
 	 */
-	private Client client;
+	private String pseudo_client;
 	
-
+	/**
+	 * represent le client assosie au cadeau
+	 */
+	private String legende;
+	
 
 
 	/**
 	 * constructeur pour les cadeau temps
-	 */
-	public Cadeau(String titre,int type, String url,Date dateDebut,Date dateFin,double longitude,double latitude,double rayon, Client client ){
-
+	 */         
+	public Cadeau(String url, String pseudo_client, int type, double longitude,double latitude, String titre, int rayon,String dateDebut,String dateFin, String legende){
 		this.titre= titre;
 		this.type=type;
 		this.url=url;
@@ -59,7 +63,8 @@ public class Cadeau {
 		this.longitude=longitude;
 		this.latitude=latitude;
 		this.rayon=rayon;
-		this.client=client;
+		this.pseudo_client=pseudo_client;
+		this.legende =legende;
 	}
 
 	public String getTitre(){
@@ -70,12 +75,12 @@ public class Cadeau {
 		this.titre=titre;
 	}
 
-	public Client getClient() {
-		return client;
+	public String getPseudoClient() {
+		return pseudo_client;
 	}
-
-	public void setClient(Client client) {
-		this.client = client;
+	
+	public void setPseudoClient(String pseudo_client) {
+		this.pseudo_client = pseudo_client;
 	}
 
 	public int getType() {
@@ -94,19 +99,19 @@ public class Cadeau {
 		this.url = url;
 	}
 
-	public Date getDateDebut() {
+	public String getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(String dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public Date getDateFin() {
+	public String getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(String dateFin) {
 		this.dateFin = dateFin;
 	}
 
@@ -126,12 +131,20 @@ public class Cadeau {
 		this.latitude = latitude;
 	}
 
-	public double getRayon() {
+	public int getRayon() {
 		return rayon;
 	}
 
-	public void setRayon(double rayon) {
+	public void setRayon(int rayon) {
 		this.rayon = rayon;
+	}
+	
+	public String getLegende() {
+		return legende;
+	}
+	
+	public void setLegende(String legende) {
+		this.legende = legende;
 	}
 	
 	
