@@ -25,7 +25,7 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 	public static final String COL_PSEUDO_CLIENT = "pseudo_client";
 	public static final String COL_PSEUDO_CONTACT = "pseudo_contact";
 	
-	// Table Cadeau
+	// Table Cadeau Client
 	
 	public static final String TABLE_CADEAU = "Cadeau";
 	public static final String COL_CADEAU_URL= "cadeau_url";
@@ -38,7 +38,14 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 	public static final String COL_RADIUS = "cadeau_rayon";
 	public static final String COL_CAD_DATE_OPEN = "cadeau_date_open";
 	public static final String COL_CAD_DATE_CLOSE = "cadeau_date_close";
-	public static final String COL_CAD_ISOPEN = "cadeau_isOpen";
+	
+	// Table Cadeau Contact
+	
+	public static final String TABLE_CADEAU_CONTACT = "Cadeau_contact";
+	public static final String COL_CADEAU_URL2= "cadeau_url2";
+	public static final String COL_CADEAU_PSEUDO_CONTACT= "cadeau_pseudo_contact";
+	public static final String COL_CADEAU_ISOPEN= "cadeau_isOpen";
+	
 
 	
 
@@ -53,11 +60,19 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 			+COL_TEL+ " text not null , "+COL_MAIL+ " text not null , "
 			+COL_PASSWORD+" text not null);";
 
-	// Création table Contact
+	// Création table Contact CLient
 	private static final String CREATE_TABLE_CONTACT_CLIENT = " create table " + TABLE_CONTACT_CLIENT 
 			+ "(" +COL_PSEUDO_CLIENT+ " text not null unique , "
 			+ COL_PSEUDO_CONTACT+ " text not null , " 
 			+  "primary key( " + COL_PSEUDO_CLIENT + "," + COL_PSEUDO_CONTACT + "));";
+	
+	// Création table Contact Cadeau
+		private static final String CREATE_TABLE_CADEAU_CONTACT = " create table " + TABLE_CADEAU_CONTACT 
+				+ "(" +COL_CADEAU_URL2+ " text not null , "
+				+ COL_CADEAU_PSEUDO_CONTACT+ " text not null , " 
+				+ COL_CADEAU_ISOPEN+ " bit not null , " 
+				+  "primary key( " + COL_CADEAU_URL2 + "," + COL_PSEUDO_CONTACT + "));";
+	
 	
 	// Création table Cadeau
 	private static final String CREATE_TABLE_CADEAU = " create table " + TABLE_CADEAU
@@ -70,8 +85,9 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 			+ COL_RADIUS+ " int not null , "
 			+ COL_CAD_DATE_OPEN+ " date not null , "
 			+ COL_CAD_DATE_CLOSE+ " date not null , "
-			+ COL_CAD_ISOPEN + " bit not null , "
 			+ COL_CADEAU_LEGENDE + " text);";
+	
+	
 	
 	
 	
@@ -95,9 +111,11 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 		db.execSQL("drop table if exists " + TABLE_CLIENT + ";");
 		db.execSQL("drop table if exists " + TABLE_CONTACT_CLIENT + ";");
 		db.execSQL("drop table if exists " + TABLE_CADEAU + ";");
+		db.execSQL("drop table if exists " + TABLE_CADEAU_CONTACT + ";");
 		db.execSQL(CREATE_TABLE_CLIENT);
 		db.execSQL(CREATE_TABLE_CONTACT_CLIENT);
 		db.execSQL(CREATE_TABLE_CADEAU);
+		db.execSQL(CREATE_TABLE_CADEAU_CONTACT);
 	}
 
 	@Override
@@ -108,6 +126,7 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 		    db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLIENT + ";");
 		    db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACT_CLIENT + ";");
 		    db.execSQL("DROP TABLE IF EXISTS " + TABLE_CADEAU + ";");
+		    db.execSQL("DROP TABLE IF EXISTS " + TABLE_CADEAU_CONTACT + ";");
 		    onCreate(db);
 	}
 	

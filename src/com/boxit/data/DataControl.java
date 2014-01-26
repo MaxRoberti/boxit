@@ -26,7 +26,7 @@ public class DataControl {
 	private String[] allColumns_cadeau = {MaBaseSQLite.COL_CADEAU_URL,MaBaseSQLite.COL_CADEAU_PSEUDO_EMETTEUR,
 			MaBaseSQLite.COL_CADEAU_TYPE,MaBaseSQLite.COL_LONG,
 			MaBaseSQLite.COL_LAT,MaBaseSQLite.COL_CADEAU_TITRE,MaBaseSQLite.COL_RADIUS,
-			MaBaseSQLite.COL_CAD_DATE_OPEN,MaBaseSQLite.COL_CAD_DATE_CLOSE,MaBaseSQLite.COL_CAD_ISOPEN,
+			MaBaseSQLite.COL_CAD_DATE_OPEN,MaBaseSQLite.COL_CAD_DATE_CLOSE,
 			MaBaseSQLite.COL_CADEAU_LEGENDE};
 	
 
@@ -91,12 +91,27 @@ public class DataControl {
 		values.put(MaBaseSQLite.COL_RADIUS, cadeau.getRayon());
 		values.put(MaBaseSQLite.COL_CAD_DATE_OPEN, cadeau.getDateDebut());
 		values.put(MaBaseSQLite.COL_CAD_DATE_CLOSE, cadeau.getDateFin());
-		values.put(MaBaseSQLite.COL_CAD_ISOPEN,0);
 		values.put(MaBaseSQLite.COL_CADEAU_LEGENDE, cadeau.getLegende());
 
 		bdd.insert(MaBaseSQLite.TABLE_CADEAU, null, values);
 
 	}
+	
+	public void insertCadeauContact(String urlCadeau, String pseudoContact){
+
+		ContentValues values = new ContentValues();
+
+		values.put(MaBaseSQLite.COL_CADEAU_URL2, urlCadeau);
+		values.put(MaBaseSQLite.COL_CADEAU_PSEUDO_CONTACT, pseudoContact);
+		values.put(MaBaseSQLite.COL_CADEAU_ISOPEN, 0);
+	
+
+		bdd.insert(MaBaseSQLite.TABLE_CADEAU, null, values);
+
+	}
+	
+	
+	// values.put(MaBaseSQLite.COL_CAD_ISOPEN,0);
 
 	// pour la desinscriptionActivity
 	public int removeClientWithPseudo(String pseudo){
@@ -217,7 +232,7 @@ public class DataControl {
 		//On crŽŽ un livre et on lui affecte toutes les infos gr‰ce aux infos contenues dans le Cursor
 		Cadeau cadeau = new Cadeau(c.getString(0),c.getString(1),c.getInt(2),
 				c.getDouble(3),c.getDouble(4),c.getString(5),c.getInt(6),c.getString(7),
-				c.getString(8),c.getString(10));
+				c.getString(8),c.getString(9));
 
 		//On ferme le cursor
 		c.close();
