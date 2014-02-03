@@ -11,7 +11,7 @@
     <string name="login_signup">S enregister</string>
     <string name="hello">helloooo</string>
     <string name="description">coucou</string>
-    
+
     <!-- Sing up Activity -->
     <string name="signup_email">Adresse Email  :</string>
     <string name="signup_password">Mot de passe:</string>
@@ -31,14 +31,26 @@
     <string name="signup_error_email_exists">Cette adresse e-mail est déjà associée à un compte</string>
     <string name="signup_error_telnumber_exists">Ce numéro de téléphone est déjà associé à un compte</string>
     <string name="date_de_naissance">Date de naissance: </string>
-     
-     
-     <!-- Send Text message activity -->
+
+    <!-- Send Text message activity -->
     <string name="Message">Evrivez votre message ici</string>
     <string name="txtmsg_error">Votre message est vide ici</string>
     <string name="textmsg_sendbutton">Envoyer </string>
-    
     <string name="testContact">kikou</string>
     <string name="testCadeau">kikou le cadeau</string>
+
+    <!-- tab activity -->
+    <string name="label1"> + </string>
+    <string name="label2"> £ </string>
+    <string name="label3"> § </string>
+    <string name="body1"> body1 </string>
+    <string name="body2"> body2 </string>
+    <string name="body3"> body3 </string>
+    <string name="title_activity_menu_friend">Amis</string>
+    <string name="title_activity_camera">CameraActivity</string>
     
+    <!-- menu activity -->
+    <string name="action_search"> cherche </string>
+    <string name="action_refresh"> refresh </string>
+
 </resources>

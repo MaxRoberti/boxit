@@ -60,21 +60,21 @@ public class MaBaseSQLite extends SQLiteOpenHelper{
 			+COL_TEL+ " text not null , "+COL_MAIL+ " text not null , "
 			+COL_PASSWORD+" text not null);";
 
-	// CrŽation table Contact CLient
+	// Crï¿½ation table Contact CLient
 	private static final String CREATE_TABLE_CONTACT_CLIENT = " create table " + TABLE_CONTACT_CLIENT 
 			+ "(" +COL_PSEUDO_CLIENT+ " text not null unique , "
 			+ COL_PSEUDO_CONTACT+ " text not null , " 
-			+  "primary key( " + COL_PSEUDO_CLIENT + "," + COL_PSEUDO_CONTACT + "));";
+			+  " primary key( " + COL_PSEUDO_CLIENT + "," + COL_PSEUDO_CONTACT + "));";
 	
-	// CrŽation table Contact Cadeau
+	// Crï¿½ation table Contact Cadeau
 		private static final String CREATE_TABLE_CADEAU_CONTACT = " create table " + TABLE_CADEAU_CONTACT 
-				+ "(" +COL_CADEAU_URL2+ " text not null , "
-				+ COL_CADEAU_PSEUDO_CONTACT+ " text not null , " 
-				+ COL_CADEAU_ISOPEN+ " bit not null , " 
-				+  "primary key( " + COL_CADEAU_URL2 + "," + COL_PSEUDO_CONTACT + "));";
+				+ "(" + COL_CADEAU_URL2 +  " text not null , "
+				+ COL_CADEAU_PSEUDO_CONTACT + " text not null , " 
+				+ COL_CADEAU_ISOPEN + " bit not null , " 
+				+  " primary key( " + COL_CADEAU_URL2 + "," + COL_CADEAU_PSEUDO_CONTACT + "));";
 	
 	
-	// CrŽation table Cadeau
+	// Crï¿½ation table Cadeau
 	private static final String CREATE_TABLE_CADEAU = " create table " + TABLE_CADEAU
 			+ "(" +COL_CADEAU_URL+ " text primary key not null unique , "
 			+ COL_CADEAU_PSEUDO_EMETTEUR+ " text not null , " 

@@ -64,7 +64,7 @@ public class LoginActivity extends Activity {
 			boolean result = dataControl.logIn(loginMail.getText().toString(), loginPassword.getText().toString());
             if(result)
             {
-            	Intent i = new Intent(LoginActivity.this, TestActivity.class);;
+            	Intent i = new Intent(LoginActivity.this, CameraActivity.class);;
 				//i.putExtra(Utilitaire.ROLE, VilleListActivity.ROLE_TOUTES_VILLES);
 				startActivity(i);
             }
